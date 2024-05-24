@@ -6,5 +6,21 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  variants: {
+    scrollbar: ['rounded'], // Add variants if needed
+  },
+  plugins: [
+    function ({ addUtilities  }) {
+      addUtilities({
+        '.no-scrollbar': {
+          /* Firefox */
+          'scrollbar-width': 'none',
+          /* Safari and Chrome */
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      });
+    }, // Using a plugin for better support
+  ],
 }

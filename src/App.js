@@ -1,15 +1,21 @@
 
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Home from './pages/home page/Home';
+import VideoCall from './pages/videoCall/VideoCall';
+import Rest from './components/rest';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-      </header>
+    <div className=''>
+     <Routes>
+      <Route path="/" element={<Home />} >
+        <Route index element={<Rest />} />
+        <Route path="videoCall" element={<VideoCall />} />
+      </Route>
+    </Routes>
     </div>
+   
   );
 }
 
